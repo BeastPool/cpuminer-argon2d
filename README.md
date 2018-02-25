@@ -40,7 +40,8 @@ Supported Algorithms
 --------------------
 
                           anime        Animecoin
-                          argon2
+                          argon2d-crds
+                          argon2d-dyn
                           axiom        Shabal-256 MemoHash
                           bastion
                           blake        Blake-256 (SFR)
