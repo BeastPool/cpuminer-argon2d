@@ -34,7 +34,7 @@ Others may work but may require more effort.
 
 MacOS, OSx is not supported.
 
-3. Stratum pool. Some algos may work wallet mining using getwork.
+3. Stratum pool. Some algos may work wallet mining using getwork or GBT. YMMV.
 
 Supported Algorithms
 --------------------
@@ -42,6 +42,9 @@ Supported Algorithms
                           anime        Animecoin
                           argon2d-crds
                           argon2d-dyn
+                          allium       Garlicoin
+                          anime        Animecoin
+                          argon2
                           axiom        Shabal-256 MemoHash
                           bastion
                           blake        Blake-256 (SFR)
@@ -108,7 +111,7 @@ Supported Algorithms
                           x17
                           xevan        Bitsend
                           yescrypt     Globalboost-Y (BSTY)
-                          yescryptr8   BitZeny (ZNY)\n\
+                          yescryptr8   BitZeny (ZNY)
                           yescryptr16  Yenten (YTN)
                           zr5          Ziftr
 
@@ -142,11 +145,11 @@ Donations
 
 cpuminer-opt has no fees of any kind but donations are accepted.
 
-BTC: 12tdvfF7KmAsihBXQXynT6E6th2c2pByTT
-ETH: 0x72122edabcae9d3f57eab0729305a425f6fef6d0
-LTC: LdUwoHJnux9r9EKqFWNvAi45kQompHk6e8
-BCH: 1QKYkB6atn4P7RFozyziAXLEnurwnUM1cQ
-BTG: GVUyECtRHeC5D58z9F3nGGfVQndwnsPnHQ
+ BTC: 12tdvfF7KmAsihBXQXynT6E6th2c2pByTT
+ ETH: 0x72122edabcae9d3f57eab0729305a425f6fef6d0
+ LTC: LdUwoHJnux9r9EKqFWNvAi45kQompHk6e8
+ BCH: 1QKYkB6atn4P7RFozyziAXLEnurwnUM1cQ
+ BTG: GVUyECtRHeC5D58z9F3nGGfVQndwnsPnHQ
 
 Happy mining!
 

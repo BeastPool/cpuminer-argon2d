@@ -1,27 +1,36 @@
-#!/bin/bash
+sed -i 's/"-lpthreadGC2"/"-lpthread"/g' configure.ac
 
-#if [ "$OS" = "Windows_NT" ]; then
-#    ./mingw64.sh
-#    exit 0
-#fi
-
-# Linux build
+mkdir release_linux
 
 make distclean || echo clean
-
 rm -f config.status
 ./autogen.sh || echo done
-
-# Ubuntu 10.04 (gcc 4.4)
-# extracflags="-O3 -march=native -Wall -D_REENTRANT -funroll-loops -fvariable-expansion-in-unroller -fmerge-all-constants -fbranch-target-load-optimize2 -fsched2-use-superblocks -falign-loops=16 -falign-functions=16 -falign-jumps=16 -falign-labels=16"
-
-# Debian 7.7 / Ubuntu 14.04 (gcc 4.7+)
-#extracflags="$extracflags -Ofast -flto -fuse-linker-plugin -ftree-loop-if-convert-stores"
-
-CFLAGS="-O3 -march=native -Wall" ./configure --with-curl --with-crypto=$HOME/usr
-#CFLAGS="-O3 -march=native -Wall" ./configure --with-curl
-#CFLAGS="-O3 -march=native -Wall" CXXFLAGS="$CFLAGS -std=gnu++11" ./configure --with-curl
-
-make -j 4
-
+CFLAGS="-O3 -march=core-avx2 -Wall" ./configure --with-curl
+make -j8
 strip -s cpuminer
+mv cpuminer release_linux/cpuminer-avx2
+
+make clean || echo clean
+rm -f config.status
+CFLAGS="-O3 -march=core-avx2 -mavx512f -fno-asynchronous-unwind-tables -Wall" ./configure --with-curl
+make -j8
+strip -s cpuminer
+mv cpuminer release_linux/cpuminer-avx512f
+
+make clean || echo clean
+rm -f config.status
+CFLAGS="-O3 -march=corei7-avx -Wall" ./configure --with-curl
+make -j8
+strip -s cpuminer
+mv cpuminer release_linux/cpuminer-aes-avx
+
+make clean || echo clean
+rm -f config.status
+CFLAGS="-O3 -march=core2 -Wall" ./configure --with-curl
+make -j8
+strip -s cpuminer
+mv cpuminer release_linux/cpuminer-sse2
+make distclean || echo clean
+
+
+

@@ -1,5 +1,6 @@
 #include "allium-gate.h"
 #include <memory.h>
+#include <mm_malloc.h>
 
 #if defined (ALLIUM_4WAY)	
 
@@ -18,14 +19,15 @@ typedef struct {
 
 } allium_4way_ctx_holder;
 
-static allium_4way_ctx_holder allium_4way_ctx;
+static __thread allium_4way_ctx_holder allium_4way_ctx;
 
-void init_allium_4way_ctx()
+bool init_allium_4way_ctx()
 {
    keccak256_4way_init( &allium_4way_ctx.keccak );
    cubehashInit( &allium_4way_ctx.cube, 256, 16, 32 );
    skein256_4way_init( &allium_4way_ctx.skein );
    init_groestl256( &allium_4way_ctx.groestl, 32 );
+   return true;
 }
 
 void allium_4way_hash( void *state, const void *input )
@@ -99,12 +101,8 @@ int scanhash_allium_4way( int thr_id, struct work *work, uint32_t max_nonce,
    uint32_t n = first_nonce;
    const uint32_t Htarg = ptarget[7];
    uint32_t *nonces = work->nonces;
-   bool *found = work->nfound;
    int num_found = 0;
-   uint32_t *noncep0 = vdata + 76; // 19*4
-   uint32_t *noncep1 = vdata + 77;
-   uint32_t *noncep2 = vdata + 78;
-   uint32_t *noncep3 = vdata + 79;
+   uint32_t *noncep = vdata + 76; // 19*4
 
    if ( opt_benchmark )
       ( (uint32_t*)ptarget )[7] = 0x0000ff;
@@ -115,44 +113,22 @@ int scanhash_allium_4way( int thr_id, struct work *work, uint32_t max_nonce,
    blake256_4way( &allium_4way_ctx.blake, vdata, 64 );
 
    do {
-      found[0] = found[1] = found[2] = found[3] = false;
-      be32enc( noncep0, n   );
-      be32enc( noncep1, n+1 );
-      be32enc( noncep2, n+2 );
-      be32enc( noncep3, n+3 );
+     be32enc( noncep,   n   );
+     be32enc( noncep+1, n+1 );
+     be32enc( noncep+2, n+2 );
+     be32enc( noncep+3, n+3 );
 
-      allium_4way_hash( hash, vdata );
-      pdata[19] = n;
+     allium_4way_hash( hash, vdata );
+     pdata[19] = n;
 
-      if ( hash[7] <= Htarg && fulltest( hash, ptarget ) )
-      {
-          found[0] = true;
-          num_found++;
-          nonces[0] = pdata[19] = n;
-          work_set_target_ratio( work, hash );
-      }
-      if ( (hash+8)[7] <= Htarg && fulltest( hash+8, ptarget ) )
-      {
-          found[1] = true;
-          num_found++;
-          nonces[1] = n+1;
-          work_set_target_ratio( work, hash+8 );
-      }
-      if ( (hash+16)[7] <= Htarg && fulltest( hash+16, ptarget ) )
-      {
-          found[2] = true;
-          num_found++;
-          nonces[2] = n+2;
-          work_set_target_ratio( work, hash+16 );
-      }
-      if ( (hash+24)[7] <= Htarg && fulltest( hash+24, ptarget ) )
-      {
-          found[3] = true;
-          num_found++;
-          nonces[3] = n+3;
-          work_set_target_ratio( work, hash+24 );
-      }
-      n += 4;
+     for ( int i = 0; i < 4; i++ )
+     if ( (hash+(i<<3))[7] <= Htarg && fulltest( hash+(i<<3), ptarget ) )
+     {
+         pdata[19] = n+i;
+         nonces[ num_found++ ] = n+i;
+         work_set_target_ratio( work, hash+(i<<3) );
+     }
+     n += 4;
    } while ( (num_found == 0) && (n < max_nonce-4)
                    && !work_restart[thr_id].restart);
 

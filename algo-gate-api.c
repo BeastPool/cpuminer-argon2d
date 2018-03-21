@@ -119,9 +119,11 @@ void init_algo_gate( algo_gate_t* gate )
    gate->gen_merkle_root         = (void*)&sha256d_gen_merkle_root;
    gate->stratum_gen_work        = (void*)&std_stratum_gen_work;
    gate->build_stratum_request   = (void*)&std_le_build_stratum_request;
+   gate->malloc_txs_request      = (void*)&std_malloc_txs_request;
    gate->set_target              = (void*)&std_set_target;
    gate->work_decode             = (void*)&std_le_work_decode;
    gate->submit_getwork_result   = (void*)&std_le_submit_getwork_result;
+   gate->build_block_header      = (void*)&std_build_block_header;
    gate->build_extraheader       = (void*)&std_build_extraheader;
    gate->set_work_data_endian    = (void*)&do_nothing;
    gate->calc_network_diff       = (void*)&std_calc_network_diff;
@@ -157,7 +159,6 @@ bool register_algo_gate( int algo, algo_gate_t *gate )
    {
      case ALGO_ALLIUM:       register_allium_algo      ( gate ); break;
      case ALGO_ANIME:        register_anime_algo       ( gate ); break;
-//     case ALGO_ARGON2:       register_argon2_algo      ( gate ); break;
      case ALGO_ARGON2D_CRDS: register_argon2d_crds_algo( gate ); break;
      case ALGO_ARGON2D_DYN:  register_argon2d_dyn_algo ( gate ); break;
      case ALGO_AXIOM:        register_axiom_algo       ( gate ); break;

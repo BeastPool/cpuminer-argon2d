@@ -33,8 +33,8 @@ cpuminer_SOURCES = \
   crypto/magimath.cpp \
   algo/argon2d/argon2d/opt.c \
   algo/argon2d/argon2d/core.c \
-  algo/argon2d/argon2d/encoding.c \
   algo/argon2d/argon2d/thread.c \
+  algo/argon2d/argon2d/encoding.c \
   algo/argon2d/blake2/blake2b.c \
   algo/argon2d/argon2d-crds-gate.c \
   algo/argon2d/argon2d-dyn-gate.c \
@@ -47,7 +47,10 @@ cpuminer_SOURCES = \
   algo/blake/sph_blake2b.c \
   algo/blake/blake2b.c \
   algo/blake/sph-blake2s.c \
+  algo/blake/blake2s-hash-4way.c \
   algo/blake/blake2s.c \
+  algo/blake/blake2s-gate.c \
+  algo/blake/blake2s-4way.c \
   algo/blake/blakecoin-gate.c \
   algo/blake/mod_blakecoin.c \
   algo/blake/blakecoin.c \

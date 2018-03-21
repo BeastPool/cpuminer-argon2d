@@ -25,6 +25,20 @@ cp $LOCAL_LIB/curl/bin/libcurl-4.dll release/
 # strip -s cpuminer.exe
 # mv cpuminer.exe release/cpuminer-avx2-sha.exe
 
+# make clean || echo clean
+# rm -f config.status
+# CFLAGS="-O3 -march=core-avx2 -msha -mavx512f -fno-asynchronous-unwind-tables -Wall" ./configure $F
+# make -j8
+# strip -s cpuminer.exe
+# mv cpuminer.exe release/cpuminer-avx512f-sha.exe
+
+# make clean || echo clean
+# rm -f config.status
+# CFLAGS="-O3 -march=core-avx2 -mavx512f -fno-asynchronous-unwind-tables -Wall" ./configure $F
+# make -j8
+# strip -s cpuminer.exe
+# mv cpuminer.exe release/cpuminer-avx512f.exe
+
 #make clean || echo clean
 #rm -f config.status
 # #CFLAGS="-O3 -march=core-avx2 -Wall -DFOUR_WAY" ./configure $F
@@ -40,7 +54,7 @@ cp $LOCAL_LIB/curl/bin/libcurl-4.dll release/
 # make clean || echo clean
 # rm -f config.status
 # CFLAGS="-O3 -march=core-avx2 -Wall" ./configure $F 
-# make 
+# make -j8
 # strip -s cpuminer.exe
 # mv cpuminer.exe release/cpuminer-avx2.exe
 
@@ -63,7 +77,7 @@ mv cpuminer.exe release/cpuminer-aes-avx.exe
 # make clean || echo clean
 # rm -f config.status
 # CFLAGS="-O3 -maes -msse4.2 -Wall" ./configure $F
-# make 
+# make -j8
 # strip -s cpuminer.exe
 # mv cpuminer.exe release/cpuminer-aes-sse42.exe
 
@@ -77,7 +91,7 @@ mv cpuminer.exe release/cpuminer-aes-avx.exe
 # make clean || echo clean
 # rm -f config.status
 # CFLAGS="-O3 -march=core2 -Wall" ./configure $F
-# make 
+# make -j8
 # strip -s cpuminer.exe
 # mv cpuminer.exe release/cpuminer-sse2.exe
 # make clean || echo clean

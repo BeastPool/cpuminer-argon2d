@@ -90,7 +90,8 @@ Additional optional compile flags, add the following to CFLAGS to activate:
 
 SPH may give slightly better performance on algos that use sha256 when using
 openssl 1.0.1 or older. Openssl 1.0.2 adds AVX2 and 1.1 adds SHA and perform
-better than SPH.
+better than SPH. This option is ignored when 4-way is used, even for CPUs
+with SHA.
 
 Start mining.
 
@@ -134,7 +135,7 @@ cd /c/path/to/cpuminer-opt
 Run build.sh to build on Windows or execute the following commands.
 
 ./autogen.sh
-CFLAGS="-O3 -march=native -Wall" CXXFLAGS="$CFLAGS -std=gnu++11 -fpermissive" ./configure --with-curl
+CFLAGS="-O3 -march=native -Wall" ./configure --with-curl
 make
 
 Start mining
@@ -158,6 +159,37 @@ Support for even older x86_64 without AES_NI or SSE2 is not availble.
 
 Change Log
 ----------
+
+v3.8.3.3
+
+Integrated getblocktemplate with algo_gate.
+Added support for hodl gbt (untested).
+Reworked some recent quick fixes.
+
+v3.8.3.2
+
+Reverted gbt changes from v3.8.0 that broke getwork.
+Reverted scaled hash rate for API, added HS term in addition to KHS. 
+Added blocks solved to console display and API.
+
+v3.8.3.1
+
+Fixed regression in v3.8.3 that broke several algos.
+
+v3.8.3
+
+More restoration of lost lyra2 hash.
+8 way AVX2 and 4way AVX optimization for blakecoin, vanilla & blake2s.
+8 way AVX2 for lbry.
+Scaled hashrate for API output.
+A couple of GBT fixes.
+
+v3.8.2.1
+
+Fixed low difficulty rejects with allium.
+Fixed qubit AVX2.
+Restored lyra2z lost hash.
+Fixed build.sh
 
 v3.8.2
 

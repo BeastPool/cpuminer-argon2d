@@ -361,7 +361,6 @@ struct work {
 	size_t xnonce2_len;
 	unsigned char *xnonce2;
         uint32_t nonces[8];
-        bool     nfound[8];
 };
 
 struct stratum_job {
@@ -451,7 +450,7 @@ void applog_hash(void *hash);
 void format_hashrate(double hashrate, char *output);
 void print_hash_tests(void);
 
-
+void scale_hash_for_display ( double* hashrate, char* units );
 
 struct thr_info {
         int id;
@@ -653,6 +652,10 @@ extern int opt_timeout;
 extern bool want_longpoll;
 extern bool have_longpoll;
 extern bool have_gbt;
+extern char*  lp_id;
+extern char *rpc_userpass;
+extern const char *gbt_lp_req;
+extern const char *getwork_req;
 extern bool allow_getwork;
 extern bool want_stratum;
 extern bool have_stratum;
