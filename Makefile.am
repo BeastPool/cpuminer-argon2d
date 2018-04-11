@@ -37,6 +37,7 @@ cpuminer_SOURCES = \
   algo/argon2d/argon2d/encoding.c \
   algo/argon2d/blake2/blake2b.c \
   algo/argon2d/argon2d-crds-gate.c \
+  algo/argon2d/argon2d-uis-gate.c \
   algo/argon2d/argon2d-dyn-gate.c \
   algo/argon2d/argon2d/argon2.c \
   algo/blake/sph_blake.c \
