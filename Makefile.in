@@ -117,21 +117,23 @@ am__cpuminer_SOURCES_DIST = cpu-miner.c util.c uint256.cpp api.c \
 	crypto/c_groestl.c crypto/c_blake256.c crypto/c_jh.c \
 	crypto/c_skein.c crypto/hash.c crypto/aesb.c \
 	crypto/magimath.cpp algo/argon2d/argon2d/opt.c \
-	algo/argon2d/argon2d/core.c algo/argon2d/argon2d/encoding.c \
-	algo/argon2d/argon2d/thread.c algo/argon2d/blake2/blake2b.c \
+	algo/argon2d/argon2d/core.c algo/argon2d/argon2d/thread.c \
+	algo/argon2d/argon2d/encoding.c algo/argon2d/blake2/blake2b.c \
 	algo/argon2d/argon2d-crds-gate.c \
+	algo/argon2d/argon2d-uis-gate.c \
 	algo/argon2d/argon2d-dyn-gate.c algo/argon2d/argon2d/argon2.c \
 	algo/blake/sph_blake.c algo/blake/blake-hash-4way.c \
 	algo/blake/blake-gate.c algo/blake/blake.c \
 	algo/blake/blake-4way.c algo/blake/sph_blake2b.c \
 	algo/blake/blake2b.c algo/blake/sph-blake2s.c \
-	algo/blake/blake2s.c algo/blake/blakecoin-gate.c \
-	algo/blake/mod_blakecoin.c algo/blake/blakecoin.c \
-	algo/blake/blakecoin-4way.c algo/blake/decred-gate.c \
-	algo/blake/decred.c algo/blake/decred-4way.c \
-	algo/blake/pentablake-gate.c algo/blake/pentablake-4way.c \
-	algo/blake/pentablake.c algo/bmw/sph_bmw.c \
-	algo/bmw/bmw-hash-4way.c algo/bmw/bmw256.c \
+	algo/blake/blake2s-hash-4way.c algo/blake/blake2s.c \
+	algo/blake/blake2s-gate.c algo/blake/blake2s-4way.c \
+	algo/blake/blakecoin-gate.c algo/blake/mod_blakecoin.c \
+	algo/blake/blakecoin.c algo/blake/blakecoin-4way.c \
+	algo/blake/decred-gate.c algo/blake/decred.c \
+	algo/blake/decred-4way.c algo/blake/pentablake-gate.c \
+	algo/blake/pentablake-4way.c algo/blake/pentablake.c \
+	algo/bmw/sph_bmw.c algo/bmw/bmw-hash-4way.c algo/bmw/bmw256.c \
 	algo/cryptonight/cryptolight.c \
 	algo/cryptonight/cryptonight-common.c \
 	algo/cryptonight/cryptonight-aesni.c \
@@ -245,10 +247,11 @@ am_cpuminer_OBJECTS = cpuminer-cpu-miner.$(OBJEXT) \
 	crypto/cpuminer-magimath.$(OBJEXT) \
 	algo/argon2d/argon2d/cpuminer-opt.$(OBJEXT) \
 	algo/argon2d/argon2d/cpuminer-core.$(OBJEXT) \
-	algo/argon2d/argon2d/cpuminer-encoding.$(OBJEXT) \
 	algo/argon2d/argon2d/cpuminer-thread.$(OBJEXT) \
+	algo/argon2d/argon2d/cpuminer-encoding.$(OBJEXT) \
 	algo/argon2d/blake2/cpuminer-blake2b.$(OBJEXT) \
 	algo/argon2d/cpuminer-argon2d-crds-gate.$(OBJEXT) \
+	algo/argon2d/cpuminer-argon2d-uis-gate.$(OBJEXT) \
 	algo/argon2d/cpuminer-argon2d-dyn-gate.$(OBJEXT) \
 	algo/argon2d/argon2d/cpuminer-argon2.$(OBJEXT) \
 	algo/blake/cpuminer-sph_blake.$(OBJEXT) \
@@ -259,7 +262,10 @@ am_cpuminer_OBJECTS = cpuminer-cpu-miner.$(OBJEXT) \
 	algo/blake/cpuminer-sph_blake2b.$(OBJEXT) \
 	algo/blake/cpuminer-blake2b.$(OBJEXT) \
 	algo/blake/cpuminer-sph-blake2s.$(OBJEXT) \
+	algo/blake/cpuminer-blake2s-hash-4way.$(OBJEXT) \
 	algo/blake/cpuminer-blake2s.$(OBJEXT) \
+	algo/blake/cpuminer-blake2s-gate.$(OBJEXT) \
+	algo/blake/cpuminer-blake2s-4way.$(OBJEXT) \
 	algo/blake/cpuminer-blakecoin-gate.$(OBJEXT) \
 	algo/blake/cpuminer-mod_blakecoin.$(OBJEXT) \
 	algo/blake/cpuminer-blakecoin.$(OBJEXT) \
@@ -759,21 +765,23 @@ cpuminer_SOURCES = cpu-miner.c util.c uint256.cpp api.c sysinfos.c \
 	crypto/c_groestl.c crypto/c_blake256.c crypto/c_jh.c \
 	crypto/c_skein.c crypto/hash.c crypto/aesb.c \
 	crypto/magimath.cpp algo/argon2d/argon2d/opt.c \
-	algo/argon2d/argon2d/core.c algo/argon2d/argon2d/encoding.c \
-	algo/argon2d/argon2d/thread.c algo/argon2d/blake2/blake2b.c \
+	algo/argon2d/argon2d/core.c algo/argon2d/argon2d/thread.c \
+	algo/argon2d/argon2d/encoding.c algo/argon2d/blake2/blake2b.c \
 	algo/argon2d/argon2d-crds-gate.c \
+	algo/argon2d/argon2d-uis-gate.c \
 	algo/argon2d/argon2d-dyn-gate.c algo/argon2d/argon2d/argon2.c \
 	algo/blake/sph_blake.c algo/blake/blake-hash-4way.c \
 	algo/blake/blake-gate.c algo/blake/blake.c \
 	algo/blake/blake-4way.c algo/blake/sph_blake2b.c \
 	algo/blake/blake2b.c algo/blake/sph-blake2s.c \
-	algo/blake/blake2s.c algo/blake/blakecoin-gate.c \
-	algo/blake/mod_blakecoin.c algo/blake/blakecoin.c \
-	algo/blake/blakecoin-4way.c algo/blake/decred-gate.c \
-	algo/blake/decred.c algo/blake/decred-4way.c \
-	algo/blake/pentablake-gate.c algo/blake/pentablake-4way.c \
-	algo/blake/pentablake.c algo/bmw/sph_bmw.c \
-	algo/bmw/bmw-hash-4way.c algo/bmw/bmw256.c \
+	algo/blake/blake2s-hash-4way.c algo/blake/blake2s.c \
+	algo/blake/blake2s-gate.c algo/blake/blake2s-4way.c \
+	algo/blake/blakecoin-gate.c algo/blake/mod_blakecoin.c \
+	algo/blake/blakecoin.c algo/blake/blakecoin-4way.c \
+	algo/blake/decred-gate.c algo/blake/decred.c \
+	algo/blake/decred-4way.c algo/blake/pentablake-gate.c \
+	algo/blake/pentablake-4way.c algo/blake/pentablake.c \
+	algo/bmw/sph_bmw.c algo/bmw/bmw-hash-4way.c algo/bmw/bmw256.c \
 	algo/cryptonight/cryptolight.c \
 	algo/cryptonight/cryptonight-common.c \
 	algo/cryptonight/cryptonight-aesni.c \
@@ -1003,10 +1011,10 @@ algo/argon2d/argon2d/cpuminer-opt.$(OBJEXT):  \
 algo/argon2d/argon2d/cpuminer-core.$(OBJEXT):  \
 	algo/argon2d/argon2d/$(am__dirstamp) \
 	algo/argon2d/argon2d/$(DEPDIR)/$(am__dirstamp)
-algo/argon2d/argon2d/cpuminer-encoding.$(OBJEXT):  \
+algo/argon2d/argon2d/cpuminer-thread.$(OBJEXT):  \
 	algo/argon2d/argon2d/$(am__dirstamp) \
 	algo/argon2d/argon2d/$(DEPDIR)/$(am__dirstamp)
-algo/argon2d/argon2d/cpuminer-thread.$(OBJEXT):  \
+algo/argon2d/argon2d/cpuminer-encoding.$(OBJEXT):  \
 	algo/argon2d/argon2d/$(am__dirstamp) \
 	algo/argon2d/argon2d/$(DEPDIR)/$(am__dirstamp)
 algo/argon2d/blake2/$(am__dirstamp):
@@ -1025,6 +1033,9 @@ algo/argon2d/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) algo/argon2d/$(DEPDIR)
 	@: > algo/argon2d/$(DEPDIR)/$(am__dirstamp)
 algo/argon2d/cpuminer-argon2d-crds-gate.$(OBJEXT):  \
+	algo/argon2d/$(am__dirstamp) \
+	algo/argon2d/$(DEPDIR)/$(am__dirstamp)
+algo/argon2d/cpuminer-argon2d-uis-gate.$(OBJEXT):  \
 	algo/argon2d/$(am__dirstamp) \
 	algo/argon2d/$(DEPDIR)/$(am__dirstamp)
 algo/argon2d/cpuminer-argon2d-dyn-gate.$(OBJEXT):  \
@@ -1056,7 +1067,16 @@ algo/blake/cpuminer-blake2b.$(OBJEXT): algo/blake/$(am__dirstamp) \
 	algo/blake/$(DEPDIR)/$(am__dirstamp)
 algo/blake/cpuminer-sph-blake2s.$(OBJEXT): algo/blake/$(am__dirstamp) \
 	algo/blake/$(DEPDIR)/$(am__dirstamp)
+algo/blake/cpuminer-blake2s-hash-4way.$(OBJEXT):  \
+	algo/blake/$(am__dirstamp) \
+	algo/blake/$(DEPDIR)/$(am__dirstamp)
 algo/blake/cpuminer-blake2s.$(OBJEXT): algo/blake/$(am__dirstamp) \
+	algo/blake/$(DEPDIR)/$(am__dirstamp)
+algo/blake/cpuminer-blake2s-gate.$(OBJEXT):  \
+	algo/blake/$(am__dirstamp) \
+	algo/blake/$(DEPDIR)/$(am__dirstamp)
+algo/blake/cpuminer-blake2s-4way.$(OBJEXT):  \
+	algo/blake/$(am__dirstamp) \
 	algo/blake/$(DEPDIR)/$(am__dirstamp)
 algo/blake/cpuminer-blakecoin-gate.$(OBJEXT):  \
 	algo/blake/$(am__dirstamp) \
@@ -1841,6 +1861,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@algo/$(DEPDIR)/cpuminer-scrypt.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/argon2d/$(DEPDIR)/cpuminer-argon2d-crds-gate.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/argon2d/$(DEPDIR)/cpuminer-argon2d-dyn-gate.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@algo/argon2d/$(DEPDIR)/cpuminer-argon2d-uis-gate.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/argon2d/argon2d/$(DEPDIR)/cpuminer-argon2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/argon2d/argon2d/$(DEPDIR)/cpuminer-core.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Po@am__quote@
@@ -1852,6 +1873,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@algo/blake/$(DEPDIR)/cpuminer-blake-hash-4way.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/blake/$(DEPDIR)/cpuminer-blake.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/blake/$(DEPDIR)/cpuminer-blake2b.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@algo/blake/$(DEPDIR)/cpuminer-blake2s-4way.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@algo/blake/$(DEPDIR)/cpuminer-blake2s-gate.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@algo/blake/$(DEPDIR)/cpuminer-blake2s-hash-4way.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/blake/$(DEPDIR)/cpuminer-blake2s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/blake/$(DEPDIR)/cpuminer-blakecoin-4way.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@algo/blake/$(DEPDIR)/cpuminer-blakecoin-gate.Po@am__quote@
@@ -2435,20 +2459,6 @@ algo/argon2d/argon2d/cpuminer-core.obj: algo/argon2d/argon2d/core.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/argon2d/argon2d/cpuminer-core.obj `if test -f 'algo/argon2d/argon2d/core.c'; then $(CYGPATH_W) 'algo/argon2d/argon2d/core.c'; else $(CYGPATH_W) '$(srcdir)/algo/argon2d/argon2d/core.c'; fi`
 
-algo/argon2d/argon2d/cpuminer-encoding.o: algo/argon2d/argon2d/encoding.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/argon2d/argon2d/cpuminer-encoding.o -MD -MP -MF algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Tpo -c -o algo/argon2d/argon2d/cpuminer-encoding.o `test -f 'algo/argon2d/argon2d/encoding.c' || echo '$(srcdir)/'`algo/argon2d/argon2d/encoding.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Tpo algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/argon2d/argon2d/encoding.c' object='algo/argon2d/argon2d/cpuminer-encoding.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/argon2d/argon2d/cpuminer-encoding.o `test -f 'algo/argon2d/argon2d/encoding.c' || echo '$(srcdir)/'`algo/argon2d/argon2d/encoding.c
-
-algo/argon2d/argon2d/cpuminer-encoding.obj: algo/argon2d/argon2d/encoding.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/argon2d/argon2d/cpuminer-encoding.obj -MD -MP -MF algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Tpo -c -o algo/argon2d/argon2d/cpuminer-encoding.obj `if test -f 'algo/argon2d/argon2d/encoding.c'; then $(CYGPATH_W) 'algo/argon2d/argon2d/encoding.c'; else $(CYGPATH_W) '$(srcdir)/algo/argon2d/argon2d/encoding.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Tpo algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/argon2d/argon2d/encoding.c' object='algo/argon2d/argon2d/cpuminer-encoding.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/argon2d/argon2d/cpuminer-encoding.obj `if test -f 'algo/argon2d/argon2d/encoding.c'; then $(CYGPATH_W) 'algo/argon2d/argon2d/encoding.c'; else $(CYGPATH_W) '$(srcdir)/algo/argon2d/argon2d/encoding.c'; fi`
-
 algo/argon2d/argon2d/cpuminer-thread.o: algo/argon2d/argon2d/thread.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/argon2d/argon2d/cpuminer-thread.o -MD -MP -MF algo/argon2d/argon2d/$(DEPDIR)/cpuminer-thread.Tpo -c -o algo/argon2d/argon2d/cpuminer-thread.o `test -f 'algo/argon2d/argon2d/thread.c' || echo '$(srcdir)/'`algo/argon2d/argon2d/thread.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/argon2d/argon2d/$(DEPDIR)/cpuminer-thread.Tpo algo/argon2d/argon2d/$(DEPDIR)/cpuminer-thread.Po
@@ -2462,6 +2472,20 @@ algo/argon2d/argon2d/cpuminer-thread.obj: algo/argon2d/argon2d/thread.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/argon2d/argon2d/thread.c' object='algo/argon2d/argon2d/cpuminer-thread.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/argon2d/argon2d/cpuminer-thread.obj `if test -f 'algo/argon2d/argon2d/thread.c'; then $(CYGPATH_W) 'algo/argon2d/argon2d/thread.c'; else $(CYGPATH_W) '$(srcdir)/algo/argon2d/argon2d/thread.c'; fi`
+
+algo/argon2d/argon2d/cpuminer-encoding.o: algo/argon2d/argon2d/encoding.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/argon2d/argon2d/cpuminer-encoding.o -MD -MP -MF algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Tpo -c -o algo/argon2d/argon2d/cpuminer-encoding.o `test -f 'algo/argon2d/argon2d/encoding.c' || echo '$(srcdir)/'`algo/argon2d/argon2d/encoding.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Tpo algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/argon2d/argon2d/encoding.c' object='algo/argon2d/argon2d/cpuminer-encoding.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/argon2d/argon2d/cpuminer-encoding.o `test -f 'algo/argon2d/argon2d/encoding.c' || echo '$(srcdir)/'`algo/argon2d/argon2d/encoding.c
+
+algo/argon2d/argon2d/cpuminer-encoding.obj: algo/argon2d/argon2d/encoding.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/argon2d/argon2d/cpuminer-encoding.obj -MD -MP -MF algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Tpo -c -o algo/argon2d/argon2d/cpuminer-encoding.obj `if test -f 'algo/argon2d/argon2d/encoding.c'; then $(CYGPATH_W) 'algo/argon2d/argon2d/encoding.c'; else $(CYGPATH_W) '$(srcdir)/algo/argon2d/argon2d/encoding.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Tpo algo/argon2d/argon2d/$(DEPDIR)/cpuminer-encoding.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/argon2d/argon2d/encoding.c' object='algo/argon2d/argon2d/cpuminer-encoding.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/argon2d/argon2d/cpuminer-encoding.obj `if test -f 'algo/argon2d/argon2d/encoding.c'; then $(CYGPATH_W) 'algo/argon2d/argon2d/encoding.c'; else $(CYGPATH_W) '$(srcdir)/algo/argon2d/argon2d/encoding.c'; fi`
 
 algo/argon2d/blake2/cpuminer-blake2b.o: algo/argon2d/blake2/blake2b.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/argon2d/blake2/cpuminer-blake2b.o -MD -MP -MF algo/argon2d/blake2/$(DEPDIR)/cpuminer-blake2b.Tpo -c -o algo/argon2d/blake2/cpuminer-blake2b.o `test -f 'algo/argon2d/blake2/blake2b.c' || echo '$(srcdir)/'`algo/argon2d/blake2/blake2b.c
@@ -2490,6 +2514,20 @@ algo/argon2d/cpuminer-argon2d-crds-gate.obj: algo/argon2d/argon2d-crds-gate.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/argon2d/argon2d-crds-gate.c' object='algo/argon2d/cpuminer-argon2d-crds-gate.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/argon2d/cpuminer-argon2d-crds-gate.obj `if test -f 'algo/argon2d/argon2d-crds-gate.c'; then $(CYGPATH_W) 'algo/argon2d/argon2d-crds-gate.c'; else $(CYGPATH_W) '$(srcdir)/algo/argon2d/argon2d-crds-gate.c'; fi`
+
+algo/argon2d/cpuminer-argon2d-uis-gate.o: algo/argon2d/argon2d-uis-gate.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/argon2d/cpuminer-argon2d-uis-gate.o -MD -MP -MF algo/argon2d/$(DEPDIR)/cpuminer-argon2d-uis-gate.Tpo -c -o algo/argon2d/cpuminer-argon2d-uis-gate.o `test -f 'algo/argon2d/argon2d-uis-gate.c' || echo '$(srcdir)/'`algo/argon2d/argon2d-uis-gate.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/argon2d/$(DEPDIR)/cpuminer-argon2d-uis-gate.Tpo algo/argon2d/$(DEPDIR)/cpuminer-argon2d-uis-gate.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/argon2d/argon2d-uis-gate.c' object='algo/argon2d/cpuminer-argon2d-uis-gate.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/argon2d/cpuminer-argon2d-uis-gate.o `test -f 'algo/argon2d/argon2d-uis-gate.c' || echo '$(srcdir)/'`algo/argon2d/argon2d-uis-gate.c
+
+algo/argon2d/cpuminer-argon2d-uis-gate.obj: algo/argon2d/argon2d-uis-gate.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/argon2d/cpuminer-argon2d-uis-gate.obj -MD -MP -MF algo/argon2d/$(DEPDIR)/cpuminer-argon2d-uis-gate.Tpo -c -o algo/argon2d/cpuminer-argon2d-uis-gate.obj `if test -f 'algo/argon2d/argon2d-uis-gate.c'; then $(CYGPATH_W) 'algo/argon2d/argon2d-uis-gate.c'; else $(CYGPATH_W) '$(srcdir)/algo/argon2d/argon2d-uis-gate.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/argon2d/$(DEPDIR)/cpuminer-argon2d-uis-gate.Tpo algo/argon2d/$(DEPDIR)/cpuminer-argon2d-uis-gate.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/argon2d/argon2d-uis-gate.c' object='algo/argon2d/cpuminer-argon2d-uis-gate.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/argon2d/cpuminer-argon2d-uis-gate.obj `if test -f 'algo/argon2d/argon2d-uis-gate.c'; then $(CYGPATH_W) 'algo/argon2d/argon2d-uis-gate.c'; else $(CYGPATH_W) '$(srcdir)/algo/argon2d/argon2d-uis-gate.c'; fi`
 
 algo/argon2d/cpuminer-argon2d-dyn-gate.o: algo/argon2d/argon2d-dyn-gate.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/argon2d/cpuminer-argon2d-dyn-gate.o -MD -MP -MF algo/argon2d/$(DEPDIR)/cpuminer-argon2d-dyn-gate.Tpo -c -o algo/argon2d/cpuminer-argon2d-dyn-gate.o `test -f 'algo/argon2d/argon2d-dyn-gate.c' || echo '$(srcdir)/'`algo/argon2d/argon2d-dyn-gate.c
@@ -2631,6 +2669,20 @@ algo/blake/cpuminer-sph-blake2s.obj: algo/blake/sph-blake2s.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/blake/cpuminer-sph-blake2s.obj `if test -f 'algo/blake/sph-blake2s.c'; then $(CYGPATH_W) 'algo/blake/sph-blake2s.c'; else $(CYGPATH_W) '$(srcdir)/algo/blake/sph-blake2s.c'; fi`
 
+algo/blake/cpuminer-blake2s-hash-4way.o: algo/blake/blake2s-hash-4way.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/blake/cpuminer-blake2s-hash-4way.o -MD -MP -MF algo/blake/$(DEPDIR)/cpuminer-blake2s-hash-4way.Tpo -c -o algo/blake/cpuminer-blake2s-hash-4way.o `test -f 'algo/blake/blake2s-hash-4way.c' || echo '$(srcdir)/'`algo/blake/blake2s-hash-4way.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/blake/$(DEPDIR)/cpuminer-blake2s-hash-4way.Tpo algo/blake/$(DEPDIR)/cpuminer-blake2s-hash-4way.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/blake/blake2s-hash-4way.c' object='algo/blake/cpuminer-blake2s-hash-4way.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/blake/cpuminer-blake2s-hash-4way.o `test -f 'algo/blake/blake2s-hash-4way.c' || echo '$(srcdir)/'`algo/blake/blake2s-hash-4way.c
+
+algo/blake/cpuminer-blake2s-hash-4way.obj: algo/blake/blake2s-hash-4way.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/blake/cpuminer-blake2s-hash-4way.obj -MD -MP -MF algo/blake/$(DEPDIR)/cpuminer-blake2s-hash-4way.Tpo -c -o algo/blake/cpuminer-blake2s-hash-4way.obj `if test -f 'algo/blake/blake2s-hash-4way.c'; then $(CYGPATH_W) 'algo/blake/blake2s-hash-4way.c'; else $(CYGPATH_W) '$(srcdir)/algo/blake/blake2s-hash-4way.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/blake/$(DEPDIR)/cpuminer-blake2s-hash-4way.Tpo algo/blake/$(DEPDIR)/cpuminer-blake2s-hash-4way.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/blake/blake2s-hash-4way.c' object='algo/blake/cpuminer-blake2s-hash-4way.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/blake/cpuminer-blake2s-hash-4way.obj `if test -f 'algo/blake/blake2s-hash-4way.c'; then $(CYGPATH_W) 'algo/blake/blake2s-hash-4way.c'; else $(CYGPATH_W) '$(srcdir)/algo/blake/blake2s-hash-4way.c'; fi`
+
 algo/blake/cpuminer-blake2s.o: algo/blake/blake2s.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/blake/cpuminer-blake2s.o -MD -MP -MF algo/blake/$(DEPDIR)/cpuminer-blake2s.Tpo -c -o algo/blake/cpuminer-blake2s.o `test -f 'algo/blake/blake2s.c' || echo '$(srcdir)/'`algo/blake/blake2s.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/blake/$(DEPDIR)/cpuminer-blake2s.Tpo algo/blake/$(DEPDIR)/cpuminer-blake2s.Po
@@ -2644,6 +2696,34 @@ algo/blake/cpuminer-blake2s.obj: algo/blake/blake2s.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/blake/blake2s.c' object='algo/blake/cpuminer-blake2s.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/blake/cpuminer-blake2s.obj `if test -f 'algo/blake/blake2s.c'; then $(CYGPATH_W) 'algo/blake/blake2s.c'; else $(CYGPATH_W) '$(srcdir)/algo/blake/blake2s.c'; fi`
+
+algo/blake/cpuminer-blake2s-gate.o: algo/blake/blake2s-gate.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/blake/cpuminer-blake2s-gate.o -MD -MP -MF algo/blake/$(DEPDIR)/cpuminer-blake2s-gate.Tpo -c -o algo/blake/cpuminer-blake2s-gate.o `test -f 'algo/blake/blake2s-gate.c' || echo '$(srcdir)/'`algo/blake/blake2s-gate.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/blake/$(DEPDIR)/cpuminer-blake2s-gate.Tpo algo/blake/$(DEPDIR)/cpuminer-blake2s-gate.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/blake/blake2s-gate.c' object='algo/blake/cpuminer-blake2s-gate.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/blake/cpuminer-blake2s-gate.o `test -f 'algo/blake/blake2s-gate.c' || echo '$(srcdir)/'`algo/blake/blake2s-gate.c
+
+algo/blake/cpuminer-blake2s-gate.obj: algo/blake/blake2s-gate.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/blake/cpuminer-blake2s-gate.obj -MD -MP -MF algo/blake/$(DEPDIR)/cpuminer-blake2s-gate.Tpo -c -o algo/blake/cpuminer-blake2s-gate.obj `if test -f 'algo/blake/blake2s-gate.c'; then $(CYGPATH_W) 'algo/blake/blake2s-gate.c'; else $(CYGPATH_W) '$(srcdir)/algo/blake/blake2s-gate.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/blake/$(DEPDIR)/cpuminer-blake2s-gate.Tpo algo/blake/$(DEPDIR)/cpuminer-blake2s-gate.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/blake/blake2s-gate.c' object='algo/blake/cpuminer-blake2s-gate.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/blake/cpuminer-blake2s-gate.obj `if test -f 'algo/blake/blake2s-gate.c'; then $(CYGPATH_W) 'algo/blake/blake2s-gate.c'; else $(CYGPATH_W) '$(srcdir)/algo/blake/blake2s-gate.c'; fi`
+
+algo/blake/cpuminer-blake2s-4way.o: algo/blake/blake2s-4way.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/blake/cpuminer-blake2s-4way.o -MD -MP -MF algo/blake/$(DEPDIR)/cpuminer-blake2s-4way.Tpo -c -o algo/blake/cpuminer-blake2s-4way.o `test -f 'algo/blake/blake2s-4way.c' || echo '$(srcdir)/'`algo/blake/blake2s-4way.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/blake/$(DEPDIR)/cpuminer-blake2s-4way.Tpo algo/blake/$(DEPDIR)/cpuminer-blake2s-4way.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/blake/blake2s-4way.c' object='algo/blake/cpuminer-blake2s-4way.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/blake/cpuminer-blake2s-4way.o `test -f 'algo/blake/blake2s-4way.c' || echo '$(srcdir)/'`algo/blake/blake2s-4way.c
+
+algo/blake/cpuminer-blake2s-4way.obj: algo/blake/blake2s-4way.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/blake/cpuminer-blake2s-4way.obj -MD -MP -MF algo/blake/$(DEPDIR)/cpuminer-blake2s-4way.Tpo -c -o algo/blake/cpuminer-blake2s-4way.obj `if test -f 'algo/blake/blake2s-4way.c'; then $(CYGPATH_W) 'algo/blake/blake2s-4way.c'; else $(CYGPATH_W) '$(srcdir)/algo/blake/blake2s-4way.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) algo/blake/$(DEPDIR)/cpuminer-blake2s-4way.Tpo algo/blake/$(DEPDIR)/cpuminer-blake2s-4way.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='algo/blake/blake2s-4way.c' object='algo/blake/cpuminer-blake2s-4way.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -c -o algo/blake/cpuminer-blake2s-4way.obj `if test -f 'algo/blake/blake2s-4way.c'; then $(CYGPATH_W) 'algo/blake/blake2s-4way.c'; else $(CYGPATH_W) '$(srcdir)/algo/blake/blake2s-4way.c'; fi`
 
 algo/blake/cpuminer-blakecoin-gate.o: algo/blake/blakecoin-gate.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cpuminer_CPPFLAGS) $(CPPFLAGS) $(cpuminer_CFLAGS) $(CFLAGS) -MT algo/blake/cpuminer-blakecoin-gate.o -MD -MP -MF algo/blake/$(DEPDIR)/cpuminer-blakecoin-gate.Tpo -c -o algo/blake/cpuminer-blakecoin-gate.o `test -f 'algo/blake/blakecoin-gate.c' || echo '$(srcdir)/'`algo/blake/blakecoin-gate.c
