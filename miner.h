@@ -486,6 +486,7 @@ enum algos {
         ALGO_ANIME,
 //        ALGO_ARGON2,
         ALGO_ARGON2D_CRDS,
+		ALGO_ARGON2D_UIS,
         ALGO_ARGON2D_DYN,
         ALGO_AXIOM,       
         ALGO_BASTION,
@@ -564,6 +565,7 @@ static const char* const algo_names[] = {
         "anime",
 //        "argon2",
         "argon2d-crds",
+		"argon2d-uis",
         "argon2d-dyn",
         "axiom",
         "bastion",
@@ -701,6 +703,7 @@ Options:\n\
                           anime        Animecoin (ANI)\n\
                           argon2\n\
                           argon2d-crds\n\
+						  argon2d-uis\n\
                           argon2d-dyn\n\
                           axiom        Shabal-256 MemoHash\n\
                           bastion\n\
@@ -886,4 +889,3 @@ static struct option const options[] = {
 
 
 #endif /* __MINER_H__ */
-
